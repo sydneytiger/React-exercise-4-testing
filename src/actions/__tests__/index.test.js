@@ -11,4 +11,9 @@ describe('saveComment', () => {
     const action = actions.saveComment('new comment');
     expect(action.payload).toEqual('new comment');
   });
+
+  it('should have a property named type with FETCH_COMMENT', () => {
+    const action = actions.fetchComment();
+    expect(action.type).toEqual(types.FETCH_COMMENT);
+  });
 });
