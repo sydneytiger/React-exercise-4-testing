@@ -11,11 +11,14 @@ class CommentBox extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-
     this.props.saveComment(this.state.comment);
-
     this.setState({ comment: '' });
   };
+
+  handleFetchComment = e => {
+    e.preventDefault();
+    this.props.fetchComment();
+  }
 
   render() {
     return (
@@ -29,6 +32,7 @@ class CommentBox extends Component {
           onChange={this.handleOnChange} />
         <div>
           <button id="btnSubmit">Submit</button>
+          <button id="btnFetch" onClick={this.handleFetchComment}>Fetch Comments</button>
         </div>
       </form>
     );

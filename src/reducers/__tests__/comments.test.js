@@ -17,8 +17,16 @@ describe('test comment reducer', () => {
   });
 
   it('should handle actions of type FETCH_COMMENT', () => {
-    const action = { type: types.FETCH_COMMENT };
+    const action = {
+      type: types.FETCH_COMMENT, payload: {
+        data: [
+          { name: 'comment 1' },
+          { name: 'comment 2' },
+          { name: 'comment 3' }
+        ]
+      }
+    };
     const newState = commentReducer(state, action);
-    expect(newState).toEqual([...state]);
+    expect(newState).toEqual([...state, 'comment 1', 'comment 2', 'comment 3']);
   });
 });

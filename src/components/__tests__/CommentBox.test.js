@@ -6,7 +6,8 @@ import Root from 'Root';
 describe('<CommentBox />', () => {
   let wrapper;
   const txtSelector = 'textarea#txtComment';
-  const btnSelector = 'button#btnSubmit';
+  const btnSubmitSelector = 'button#btnSubmit';
+  const btnFetchSelector = 'button#btnFetch';
 
   beforeEach(() => {
     wrapper = mount(<Root><CommentBox /></Root>);
@@ -16,9 +17,10 @@ describe('<CommentBox />', () => {
     wrapper.unmount();
   });
 
-  it('should has a textarea and a button', () => {
+  it('should has a textarea and two buttons', () => {
     expect(wrapper.find(txtSelector).length).toEqual(1);
-    expect(wrapper.find(btnSelector).length).toEqual(1);
+    expect(wrapper.find(btnSubmitSelector).length).toEqual(1);
+    expect(wrapper.find(btnFetchSelector).length).toEqual(1);
   });
 
   describe('test textarea', () => {
