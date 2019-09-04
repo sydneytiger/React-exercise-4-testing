@@ -15,3 +15,10 @@ export function fetchComment() {
     payload: response
   }
 }
+
+export function changeAuth(isLoggedIn) {
+  return {
+    type: types.CHANGE_AUTH,
+    payload: isLoggedIn
+  }
+}
